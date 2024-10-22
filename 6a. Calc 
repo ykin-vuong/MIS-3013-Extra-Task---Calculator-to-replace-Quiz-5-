@@ -1,0 +1,106 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace P6_Calculator
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string userinput;
+            string answer;
+                      
+            do
+            {
+                Console.WriteLine("Welcome to the Calculator Program\n" +
+                  "what is your first name?");
+                string developerName = Console.ReadLine();
+                Console.WriteLine("What class are you writing this for?");
+                string className = Console.ReadLine();
+                Console.WriteLine("What is the date of writing?");
+                string dateOfWriting = Console.ReadLine();
+
+                DeveloperInfo(developerName, className, dateOfWriting);
+
+                Console.WriteLine("What math method would you like to do? (addition, subtraction, multiplication, division)");
+                userinput = Console.ReadLine().ToLower();
+
+                if (userinput[0] == 'a')
+                {
+                    Console.WriteLine("You have selected addition\n" +
+                        "\nwhat is your first number?");
+                    double v1 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("What is your second number?");
+                    double v2 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("\n" +Add(v1, v2));
+
+                }
+                else if (userinput[0] == 's')
+                {
+                    Console.WriteLine("You have selected subtraction\n" +
+                        "\nwhat is your first number?");
+                    double v1 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("What is your second number?");
+                    double v2 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine(Subtract(v1, v2));
+                }
+                else if (userinput[0] == 'm')
+                {
+                    Console.WriteLine("You have seleocted multiplication\n" +
+                        "\nwhat is your first number?");
+                    double v1 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("What is your second number?");
+                    double v2 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine(Multiply(v1, v2));
+                }
+                else if (userinput[0] == 'd')
+                {
+                    Console.WriteLine("You have selected division\n" +
+                        "\nwhat is your first number?");
+                    double v1 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("What is your second number?");
+                    double v2 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine(Divide(v1, v2));
+                }
+
+                Console.WriteLine("\nWould you like to continue?");
+                answer = Console.ReadLine();
+
+            } while (answer.ToLower() == "yes");
+
+            Console.WriteLine("\nPress any key to continue . . . ");
+
+            Console.ReadKey();
+        }
+
+        static double Add(double v1, double v2)
+        {
+            return v1 + v2;
+        }
+
+        static double Subtract(double v1, double v2)
+        {
+            return v1 - v2;
+        }
+
+        static double Multiply(double v1, double v2)
+        {
+            return v1 * v2;
+        }
+
+        static double Divide(double v1, double v2)
+        {
+            return v1 / v2;
+        }
+
+        static void DeveloperInfo(string developerName, string className, string dateOfWriting)
+        {
+            Console.WriteLine($">> Note: {developerName} wrote this program for" +
+                $" {className} on {dateOfWriting}\n");
+
+        }
+    }
+}
